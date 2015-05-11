@@ -243,12 +243,10 @@ func LogRequest(r *http.Request, t string) {
 		URL:       strings.Join([]string{r.Host, r.URL.String()}, ""),
 		Form:      r.Form.Encode(),
 		Payload:   string(body),
-		Headers: Headers{
-			Host:           r.Host,
-			UserAgent:      r.UserAgent(),
-			ContentType:    r.Header.Get("Content-Type"),
-			AcceptLanguage: r.Header.Get("Accept-Language"),
-		},
+		Host:           r.Host,
+		UserAgent:      r.UserAgent(),
+		ContentType:    r.Header.Get("Content-Type"),
+		AcceptLanguage: r.Header.Get("Accept-Language"),
 		SensorIP: Conf.SensorIP,
 		Type:     t,
 	}
